@@ -1,0 +1,633 @@
+/* ============================================
+   📝 To-Do List Application Styles
+   Beautiful Glassmorphism Design
+   ============================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #ff1493;
+    --secondary: #00ffff;
+    --success: #00ff88;
+    --danger: #ff4444;
+    --dark-bg: #0a0e27;
+    --card-bg: rgba(255, 255, 255, 0.1);
+    --border: rgba(255, 255, 255, 0.2);
+    --text: #ffffff;
+    --text-dim: rgba(255, 255, 255, 0.7);
+    --shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+    --blur: blur(4px);
+}
+
+/* ============================================
+   Global Styles
+   ============================================ */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, var(--dark-bg) 0%, #1a1f3a 100%);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-attachment: fixed;
+}
+
+.container {
+    width: 100%;
+    max-width: 600px;
+    background: var(--card-bg);
+    backdrop-filter: var(--blur);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: var(--shadow);
+    animation: slideIn 0.6s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================
+   Header Section
+   ============================================ */
+
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    font-size: 2.5em;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 10px;
+    animation: glow 2s ease-in-out infinite;
+}
+
+@keyframes glow {
+    0%, 100% {
+        filter: drop-shadow(0 0 10px var(--primary));
+    }
+    50% {
+        filter: drop-shadow(0 0 20px var(--secondary));
+    }
+}
+
+.subtitle {
+    color: var(--text-dim);
+    font-size: 0.95em;
+}
+
+/* ============================================
+   Stats Section
+   ============================================ */
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.stat-item {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.stat-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-5px);
+    border-color: var(--secondary);
+}
+
+.stat-label {
+    display: block;
+    color: var(--text-dim);
+    font-size: 0.85em;
+    margin-bottom: 5px;
+}
+
+.stat-value {
+    display: block;
+    font-size: 2em;
+    font-weight: bold;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ============================================
+   Input Section
+   ============================================ */
+
+.input-section {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.task-input {
+    flex: 1;
+    padding: 12px 18px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    color: var(--text);
+    font-size: 1em;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.task-input:focus {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: var(--secondary);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+}
+
+.task-input::placeholder {
+    color: var(--text-dim);
+}
+
+.add-btn {
+    padding: 12px 25px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(255, 20, 147, 0.5);
+}
+
+.add-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.6);
+}
+
+.add-btn:active {
+    transform: translateY(0);
+}
+
+/* ============================================
+   Filter Buttons
+   ============================================ */
+
+.filter-section {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    justify-content: center;
+}
+
+.filter-btn {
+    padding: 8px 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid var(--border);
+    border-radius: 20px;
+    color: var(--text-dim);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.filter-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: var(--secondary);
+}
+
+.filter-btn.active {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    border-color: transparent;
+    color: white;
+    box-shadow: 0 0 15px rgba(255, 20, 147, 0.5);
+}
+
+/* ============================================
+   Task List
+   ============================================ */
+
+.task-list {
+    min-height: 200px;
+    margin-bottom: 20px;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.task-item:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--secondary);
+    transform: translateX(5px);
+}
+
+.task-item.completed {
+    opacity: 0.6;
+}
+
+/* Task Checkbox */
+
+.task-checkbox {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: var(--success);
+}
+
+/* Task Text */
+
+.task-text {
+    flex: 1;
+    font-size: 1em;
+    word-break: break-word;
+    transition: all 0.3s ease;
+}
+
+.task-item.completed .task-text {
+    text-decoration: line-through;
+    color: var(--text-dim);
+}
+
+/* Task Buttons */
+
+.task-buttons {
+    display: flex;
+    gap: 5px;
+}
+
+.task-btn {
+    padding: 6px 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text-dim);
+    cursor: pointer;
+    font-size: 0.85em;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.task-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: var(--secondary);
+    transform: translateY(-2px);
+}
+
+.task-btn.delete:hover {
+    background: rgba(255, 68, 68, 0.2);
+    border-color: var(--danger);
+    color: var(--danger);
+}
+
+/* Empty State */
+
+.empty-state {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--text-dim);
+}
+
+.empty-icon {
+    font-size: 3em;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.empty-state p {
+    font-size: 1.1em;
+}
+
+/* ============================================
+   Action Buttons
+   ============================================ */
+
+.action-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.action-btn {
+    flex: 1;
+    padding: 12px;
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text);
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.action-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+.action-btn.secondary {
+    border-color: var(--secondary);
+    color: var(--secondary);
+}
+
+.action-btn.secondary:hover {
+    background: rgba(0, 255, 255, 0.1);
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+}
+
+.action-btn.danger {
+    border-color: var(--danger);
+    color: var(--danger);
+}
+
+.action-btn.danger:hover {
+    background: rgba(255, 68, 68, 0.1);
+    box-shadow: 0 0 15px rgba(255, 68, 68, 0.3);
+}
+
+/* ============================================
+   Footer
+   ============================================ */
+
+.footer {
+    text-align: center;
+    color: var(--text-dim);
+    font-size: 0.9em;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+}
+
+/* ============================================
+   Modal Styles
+   ============================================ */
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: var(--blur);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 30px;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: var(--shadow);
+    animation: slideIn 0.3s ease;
+}
+
+.modal-content h2 {
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.modal-input {
+    width: 100%;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    color: var(--text);
+    font-size: 1em;
+    margin-bottom: 20px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.modal-input:focus {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: var(--secondary);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.modal-btn {
+    flex: 1;
+    padding: 12px;
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text);
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.modal-btn:hover {
+    transform: translateY(-2px);
+}
+
+.modal-btn.primary {
+    border-color: var(--secondary);
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+}
+
+.modal-btn.secondary {
+    border-color: var(--text-dim);
+}
+
+.modal-btn.secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* ============================================
+   Responsive Design
+   ============================================ */
+
+@media (max-width: 600px) {
+    .container {
+        padding: 25px;
+        border-radius: 15px;
+    }
+
+    .header h1 {
+        font-size: 2em;
+    }
+
+    .stats {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+    }
+
+    .stat-item {
+        padding: 12px;
+    }
+
+    .stat-value {
+        font-size: 1.5em;
+    }
+
+    .input-section {
+        flex-direction: column;
+    }
+
+    .add-btn {
+        width: 100%;
+    }
+
+    .filter-section {
+        flex-wrap: wrap;
+    }
+
+    .task-item {
+        flex-wrap: wrap;
+    }
+
+    .task-buttons {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .task-btn {
+        flex: 1;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+    }
+
+    .modal-content {
+        width: 95%;
+    }
+}
+
+@media (max-width: 400px) {
+    .container {
+        padding: 20px;
+    }
+
+    .header h1 {
+        font-size: 1.5em;
+    }
+
+    .subtitle {
+        font-size: 0.85em;
+    }
+
+    .stats {
+        grid-template-columns: 1fr;
+    }
+
+    .filter-section {
+        gap: 8px;
+    }
+
+    .filter-btn {
+        padding: 6px 15px;
+        font-size: 0.9em;
+    }
+}
+
+/* ============================================
+   Animations & Transitions
+   ============================================ */
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-10px);
+    }
+    75% {
+        transform: translateX(10px);
+    }
+}
+
+/* Scrollbar Styling */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 20, 147, 0.5);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 255, 255, 0.7);
+}
