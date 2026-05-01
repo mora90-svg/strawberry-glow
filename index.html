@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>موقعي الثابت - صفحة مطوّرة</title>
+  <meta name="description" content="قالب صفحة ثابتة متجاوبة وسريع." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="#">اسم الموقع</a>
+      <nav id="main-nav" class="main-nav">
+        <a href="#home">الرئيسية</a>
+        <a href="#features">الميزات</a>
+        <a href="#gallery">معرض</a>
+        <a href="#contact">اتصل بنا</a>
+      </nav>
+      <button id="nav-toggle" class="nav-toggle" aria-label="قائمة">
+        <span class="hamburger"></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <h1>صفحة ثابتة متطورة وسريعة</h1>
+          <p>قالب جاهز للتخصيص: تصميم متجاوب، أداء مُحسّن، وسهولة النشر.</p>
+          <p><a class="btn" href="#contact">ابدأ الآن</a></p>
+        </div>
+        <div class="hero-illustration" aria-hidden="true">
+          <img src="https://via.placeholder.com/560x360?text=Illustration" alt="" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="features container">
+      <h2>الميزات</h2>
+      <div class="features-grid">
+        <article class="feature-card">
+          <h3>متجاوبة</h3>
+          <p>تعمل بشكل جيد على الكمبيوتر والموبايل.</p>
+        </article>
+        <article class="feature-card">
+          <h3>أداء</h3>
+          <p>حجم صغير، تحميل سريع، صور بلّazy-loading.</p>
+        </article>
+        <article class="feature-card">
+          <h3>سهل التخصيص</h3>
+          <p>أعد ترتيب المحتوى وعدّل الألوان بسهولة.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="gallery" class="gallery container">
+      <h2>معرض</h2>
+      <div class="gallery-grid">
+        <img src="https://via.placeholder.com/400x300?text=1" alt="صورة 1" loading="lazy">
+        <img src="https://via.placeholder.com/400x300?text=2" alt="صورة 2" loading="lazy">
+        <img src="https://via.placeholder.com/400x300?text=3" alt="صورة 3" loading="lazy">
+        <img src="https://via.placeholder.com/400x300?text=4" alt="صورة 4" loading="lazy">
+      </div>
+    </section>
+
+    <section id="contact" class="contact container">
+      <h2>تواصل معنا</h2>
+      <form id="contact-form" class="contact-form" action="#" novalidate>
+        <label>
+          الاسم
+          <input type="text" name="name" required />
+        </label>
+        <label>
+          البريد الإلكتروني
+          <input type="email" name="email" required />
+        </label>
+        <label>
+          الرسالة
+          <textarea name="message" rows="5" required></textarea>
+        </label>
+        <button type="submit" class="btn">أرسل</button>
+        <p id="form-status" class="form-status" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> اسم الموقع. جميع الحقوق محفوظة.</p>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
